@@ -6,10 +6,9 @@ import { UserService } from '../../services/user.service';
 @Component({
   selector: 'register',
   templateUrl: './register.component.html',
-  providers: [UserService]
+  providers: [UserService],
 })
-export class RegisterComponent implements OnInit{
-
+export class RegisterComponent implements OnInit {
   public title: string;
   public user: User;
   public status: string;
@@ -18,29 +17,28 @@ export class RegisterComponent implements OnInit{
     private _route: ActivatedRoute,
     private _router: Router,
     private _userService: UserService
-  ){
+  ) {
     this.title = 'Registrate';
     this.user = new User('', '', '', '', '', '', 'ROLE_USER', '');
   }
 
-  ngOnInit(){
+  ngOnInit() {
     console.log('Componente de register cargado...');
   }
 
-  onSubmit(form){
+  onSubmit(form) {
     this._userService.register(this.user).subscribe(
-      response => {
+      (response) => {
         if (response.user && response.user._id) {
           this.status = 'success';
           form.reset();
-        }else{
+        } else {
           this.status = 'error';
         }
       },
-      error =>{
+      (error) => {
         console.log(<any>error);
       }
     );
   }
-
 }

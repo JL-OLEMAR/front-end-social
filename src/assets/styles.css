@@ -9,8 +9,12 @@
     border-bottom: 1px solid #eee;
 }
 
+.active {
+    background-color: #cc1717;
+}
 
-/*HEADER*/
+
+/*CABACERA*/
 
 .navigation {
     padding: 0px !important;
@@ -24,4 +28,8 @@
 
 .navigation .navbar * {
     color: white !important;
+}
+
+.navigation .navbar a:hover {
+    background-color: #cc1717 !important;
 }
