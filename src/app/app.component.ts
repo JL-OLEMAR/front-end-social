@@ -1,4 +1,5 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -7,11 +8,15 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./app.component.css'],
   providers: [UserService],
 })
-export class AppComponent implements OnInit, DoCheck{
+export class AppComponent implements OnInit, DoCheck {
   public title: string;
   public identity;
 
-  constructor(private _userService: UserService) {
+  constructor(
+    private _route: ActivatedRoute,
+    private _router: Router,
+    private _userService: UserService
+  ) {
     this.title = 'NGSOCIAL';
   }
 
@@ -22,5 +27,11 @@ export class AppComponent implements OnInit, DoCheck{
 
   ngDoCheck(): void {
     this.identity = this._userService.getIdentity();
+  }
+
+  logout() {
+    localStorage.clear();
+    this.identity = null;
+    this._router.navigate(['/']);
   }
 }
