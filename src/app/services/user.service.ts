@@ -10,18 +10,18 @@ export class UserService {
   public identity;
   public token;
 
-  constructor(private _http: HttpClient) {
+  constructor(public _http: HttpClient) {
     this.url = GLOBAL.url;
   }
 
-  register(user: User): Observable<any> {
+  register(user): Observable<any> {
     let params = JSON.stringify(user);
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
 
     return this._http.post(this.url + 'register', params, { headers: headers });
   }
 
-  signup(user: User, gettoken = null): Observable<any> {
+  signup(user, gettoken = null): Observable<any> {
     if (gettoken != null) {
       user.gettoken = gettoken;
     }

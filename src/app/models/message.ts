@@ -1,4 +1,4 @@
-export class Message{
+export class Message {
   constructor(
     public _id: string,
     public text: string,
@@ -6,5 +6,5 @@ export class Message{
     public created_at: string,
     public emitter: string,
     public receiver: string
-  ){}
+  ) {}
 }

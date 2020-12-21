@@ -7,24 +7,19 @@ import * as $ from 'jquery';
 
 // Cargar componentes
 import { AppComponent } from './app.component';
-import { LoginComponent } from '../components/login/login.component';
-import { RegisterComponent } from '../components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    HomeComponent,
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    routing,
-    HttpClientModule
-  ],
-  providers: [
-    appRoutingProviders
-  ],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, FormsModule, routing, HttpClientModule],
+  providers: [appRoutingProviders],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
