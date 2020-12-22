@@ -9,6 +9,7 @@ export class UserService {
   public url: string;
   public identity;
   public token;
+  public stats;
 
   constructor(public _http: HttpClient) {
     this.url = GLOBAL.url;
@@ -17,7 +18,6 @@ export class UserService {
   register(user): Observable<any> {
     let params = JSON.stringify(user);
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
-
     return this._http.post(this.url + 'register', params, { headers: headers });
   }
 
@@ -27,7 +27,6 @@ export class UserService {
     }
     let params = JSON.stringify(user);
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
-
     return this._http.post(this.url + 'login', params, { headers: headers });
   }
 
@@ -49,5 +48,29 @@ export class UserService {
       this.token = null;
     }
     return this.token;
+  }
+
+  getStats() {
+    let stats = JSON.parse(localStorage.getItem('stats'));
+
+    if (stats != 'undefined') {
+      this.stats = stats;
+    } else {
+      this.stats = null;
+    }
+
+    return this.stats;
+  }
+
+  getCounters(userId = null): Observable<any> {
+    let headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('Authorization', this.getToken());
+
+    if (userId != null) {
+      return this._http.get(this.url + 'counters/' + userId, { headers: headers });
+    } else {
+      return this._http.get(this.url + 'counters', { headers: headers });
+    }
   }
 }
