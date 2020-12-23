@@ -49,6 +49,21 @@
   background-color: #eee !important;
 }
 
+.navigation .avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 100px;
+  overflow: hidden;
+  margin-top: 9px;
+  margin-right: 1px;
+  margin-left: 12px;
+}
+
+.navigation .avatar img {
+  width: 37px;
+  height: 35px;
+}
+
 /* HOME */
 .jumbotron {
   padding: 25px;
@@ -58,4 +73,16 @@
 
 .j-space {
   margin: 2px;
+}
+
+.avatar-image {
+  width: 300px;
+  height: 300px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.avatar-image img {
+  width: 310px;
+  height: 300px;
 }
