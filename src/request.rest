@@ -8,13 +8,26 @@ Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1ZmRjZmNlYzViM2U5
 
 ### nueva publication
 POST http://localhost:3800/api/publication
-Content-Type: application/json,
+Content-Type: application/json
 Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1ZmRjZmNlYzViM2U5ZjZjOGUwM2I2MjgiLCJuYW1lIjoiYWRtaW4iLCJzdXJuYW1lIjoiYWRtaW4iLCJuaWNrIjoiYWRtaW5TdXBlciIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImltYWdlIjoiWXBsWkV2dDBsNkJUbGRrY1E0d1F4b1J5LmpwZyIsImlhdCI6MTYwODUwMjUyMSwiZXhwIjoxNjExMDk0NTIxfQ.F7gMSBo_MVunJ8eXqdKzbzvUl8a8CXvisvXe-JK-wJw
-# esto de aqui es un request body
+
+# esto de aqui abajo es un request body
 {
-    // datos requeridos
-    "text": "new publication"
+    // este es el campo requerido
+    "text": "new publication vscode"
 }
+
+### subir imagen de una publicación
+POST http://localhost:3800/api/upload-image-pub/5fe2380a02917fbaa483f426
+Content-Type: application/json
+Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1ZmRjZmNlYzViM2U5ZjZjOGUwM2I2MjgiLCJuYW1lIjoiYWRtaW4iLCJzdXJuYW1lIjoiYWRtaW4iLCJuaWNrIjoiYWRtaW5TdXBlciIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImltYWdlIjoiWXBsWkV2dDBsNkJUbGRrY1E0d1F4b1J5LmpwZyIsImlhdCI6MTYwODUwMjUyMSwiZXhwIjoxNjExMDk0NTIxfQ.F7gMSBo_MVunJ8eXqdKzbzvUl8a8CXvisvXe-JK-wJw
+
+# esto de aqui abajo es un request body
+{
+    // este es la imagen requerida
+    "image": "chef.jpg"
+}
+
 
 ### eliminado una publicacion
 DELETE http://localhost:3800/api/publication/5fdd4c2dc995e82efddd6923

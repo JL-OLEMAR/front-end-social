@@ -1,0 +1,97 @@
+<div class="col-lg-5">
+  <h1 class="h1-strong">{{ title }}</h1>
+
+  <div class="alert alert-success" *ngIf="status == 'success'">
+    Se han actualizado tus datos correctamente.
+  </div>
+
+  <div class="alert alert-danger" *ngIf="status == 'error'">
+    No se han podido actualizar tus datos. Escoge otro email o otro apodo.
+  </div>
+
+  <form
+    #userEditForm="ngForm"
+    (ngSubmit)="onSubmit()"
+    class="col-lg-12 col-md-12"
+  >
+    <p>
+      <label>Nombre</label>
+      <input
+        type="text"
+        name="name"
+        #name="ngModel"
+        [(ngModel)]="user.name"
+        required
+        class="form-control"
+      />
+      <span
+        *ngIf="!name.valid && name.touched"
+        class="invalid-feedback d-block"
+      >
+        El nombre es obligatorio.
+      </span>
+    </p>
+
+    <p>
+      <label>Apellidos</label>
+      <input
+        type="text"
+        name="surname"
+        #surname="ngModel"
+        [(ngModel)]="user.surname"
+        required
+        class="form-control"
+      />
+      <span
+        *ngIf="!surname.valid && surname.touched"
+        class="invalid-feedback d-block"
+      >
+        Los apellidos son obligatorios.
+      </span>
+    </p>
+
+    <p>
+      <label>Apodo</label>
+      <input
+        type="text"
+        name="nick"
+        #nick="ngModel"
+        [(ngModel)]="user.nick"
+        required
+        class="form-control"
+      />
+      <span
+        *ngIf="!nick.valid && nick.touched"
+        class="invalid-feedback d-block"
+      >
+        El apodo es obligatorio.
+      </span>
+    </p>
+
+    <p>
+      <label>Correo electrónico</label>
+      <input
+        type="email"
+        name="email"
+        #email="ngModel"
+        [(ngModel)]="user.email"
+        required
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+        class="form-control"
+      />
+      <span
+        *ngIf="!email.valid && email.touched"
+        class="invalid-feedback d-block"
+      >
+        El correo es obligatorio.
+      </span>
+    </p>
+
+    <input
+      type="submit"
+      value="{{ title }}"
+      class="btn btn-warning"
+      [disabled]="!userEditForm.form.valid"
+    />
+  </form>
+</div>
