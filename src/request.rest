@@ -2,6 +2,20 @@
 ### USER
 // user:admin, token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1ZmRjZmNlYzViM2U5ZjZjOGUwM2I2MjgiLCJuYW1lIjoiYWRtaW4iLCJzdXJuYW1lIjoiYWRtaW4iLCJuaWNrIjoiYWRtaW5TdXBlciIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImltYWdlIjoiWXBsWkV2dDBsNkJUbGRrY1E0d1F4b1J5LmpwZyIsImlhdCI6MTYwODUwMjUyMSwiZXhwIjoxNjExMDk0NTIxfQ.F7gMSBo_MVunJ8eXqdKzbzvUl8a8CXvisvXe-JK-wJw
 
+### nueva usuario
+POST http://localhost:3800/api/register
+Content-Type: application/json
+
+# esto de aqui abajo es un request body
+{
+    // este es el campo requerido
+    "name": "user4",
+    "surname": "user4",
+    "nick": "user4",
+    "email": "user4@user4.com",
+    "password": "admin"
+}
+
 ### publications
 GET http://localhost:3800/api/publications
 Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1ZmRjZmNlYzViM2U5ZjZjOGUwM2I2MjgiLCJuYW1lIjoiYWRtaW4iLCJzdXJuYW1lIjoiYWRtaW4iLCJuaWNrIjoiYWRtaW5TdXBlciIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImltYWdlIjoiWXBsWkV2dDBsNkJUbGRrY1E0d1F4b1J5LmpwZyIsImlhdCI6MTYwODUwMjUyMSwiZXhwIjoxNjExMDk0NTIxfQ.F7gMSBo_MVunJ8eXqdKzbzvUl8a8CXvisvXe-JK-wJw
