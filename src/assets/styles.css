@@ -2,7 +2,7 @@
 .h1-strong {
   font-size: 35px;
   font-weight: bold;
-  margin-left: 13px;
+  /* margin-left: 13px; */
   margin-bottom: 20px;
   padding-bottom: 15px;
   border-bottom: 1px solid #eee;
@@ -83,9 +83,10 @@
   overflow: hidden;
 }
 
+/* GENTE */
 .avatar-image img {
-  width: 310px;
-  height: 300px;
+  width: 100%;
+  height: 100%;
 }
 
 .item-user .image-user {
@@ -97,8 +98,8 @@
 }
 
 .item-user .image-user img {
-  width: 100px;
-  height: 80px;
+  width: 100%;
+  height: 100%;
 }
 
 .item-user .user-name {
@@ -114,6 +115,89 @@
   font-weight: bold;
 }
 
-.avatar-default{
+.avatar-default {
   width: 100% !important;
+}
+
+/* SIDEBAR */
+.sidevar-32 {
+  width: 31% !important;
+  padding: 0px !important;
+}
+
+#user-card {
+  padding: 25px;
+  width: 31% !important;
+  margin-left: 15px;
+}
+
+#user-card .avatar {
+  width: 75px;
+  height: 75px;
+  border-radius: 100px;
+  overflow: hidden;
+  margin-right: 15px;
+}
+
+#user-card .avatar img {
+  width: 100%;
+}
+
+#user-card .name-surname {
+  font-weight: 300;
+  font-size: 17px;
+}
+
+#user-card .name-surname a {
+  color: #555;
+}
+
+#user-card .name-surname .nickname {
+  color: #969393;
+}
+
+#user-card .stats {
+  border-top: 1px solid #eee;
+  margin-top: 10px;
+}
+
+#user-card .stats a {
+  text-decoration: none;
+}
+
+#user-card .stats a:hover .number-stats {
+  color: #cc1717;
+}
+
+#user-card .label-stats,
+#user-card .number-stats {
+  display: block;
+  text-align: center;
+  transition: all 300ms;
+}
+
+#user-card .label-stats {
+  font-weight: bold;
+  color: #555;
+}
+
+#user-card .number-stats {
+  font-weight: bold;
+  color: green;
+}
+
+#user-card .following-data {
+  float: left;
+  padding-left: 18px;
+  padding-right: 18px;
+  margin-top: 10px;
+  border-right: 2px solid #eee;
+}
+
+#user-card .following-data:first-child {
+  padding-left: 6px;
+}
+
+#user-card .following-data:last-child {
+  border: none;
 }

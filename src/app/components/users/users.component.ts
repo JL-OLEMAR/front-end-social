@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { User } from '../../models/user';
-import { UserService } from '../../services/user.service';
+import { Follow } from '../../models/follow';
 import { GLOBAL } from '../../services/global';
+import { UserService } from '../../services/user.service';
+import { FollowService } from '../../services/follow.service';
 
 @Component({
   selector: 'users',
   templateUrl: './users.component.html',
-  providers: [UserService],
+  providers: [UserService, FollowService],
 })
 export class UsersComponent implements OnInit {
   public title: string;
@@ -26,7 +28,8 @@ export class UsersComponent implements OnInit {
   constructor(
     private _route: ActivatedRoute,
     private _router: Router,
-    private _userService: UserService
+    private _userService: UserService,
+    private _followService: FollowService
   ) {
     this.title = 'Gente';
     this.identity = this._userService.getIdentity();
@@ -98,5 +101,47 @@ export class UsersComponent implements OnInit {
 
   mouseLeave(user_id) {
     this.followUserOver = 0;
+  }
+
+  // Vamos a seguir
+  followUser(followed) {
+    var follow = new Follow('', this.identity._id, followed);
+    this._followService.addFollow(this.token, follow).subscribe(
+      (response) => {
+        if (!response.follow) {
+          this.status = 'error';
+        } else {
+          this.status = 'success';
+          this.follows.push(followed);
+        }
+      },
+      (error) => {
+        var errorMessage = <any>error;
+        console.log(errorMessage);
+
+        if (errorMessage != null) {
+          this.status = 'error';
+        }
+      }
+    );
+  }
+
+  unfollowUser(followed) {
+    this._followService.deleteFollow(this.token, followed).subscribe(
+      (response) => {
+        var search = this.follows.indexOf(followed);
+        if (search != 1) {
+          this.follows.splice(search, 1);
+        }
+      },
+      (error) => {
+        var errorMessage = <any>error;
+        console.log(errorMessage);
+
+        if (errorMessage != null) {
+          this.status = 'error';
+        }
+      }
+    );
   }
 }

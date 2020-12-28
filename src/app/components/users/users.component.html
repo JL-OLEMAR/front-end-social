@@ -30,10 +30,11 @@
             <p class="nickname">{{ user.nick }}</p>
           </div>
           <!-- SEGUIR/ DEJAR DE SEGUIR -->
-          <div class="pull-right">
+          <div class="pull-right" *ngIf="user._id != identity._id">
             <button
               class="btn btn-success"
               *ngIf="follows.indexOf(user._id) < 0"
+              (click)="followUser(user._id)"
             >
               <span class="glyphicon glyphicon-plus-sign"></span>Seguir
             </button>
@@ -43,6 +44,7 @@
               *ngIf="follows.indexOf(user._id) >= 0"
               (mouseenter)="mouseEnter(user._id)"
               (mouseleave)="mouseLeave(user._id)"
+              (click)="unfollowUser(user._id)"
               [class.btn-danger]="user._id == followUserOver"
             >
               <span *ngIf="user._id == followUserOver; else following">
@@ -71,3 +73,7 @@
     </ul>
   </div>
 </div>
+
+<sidebar></sidebar>
+
+<div class="clearfix"></div>
