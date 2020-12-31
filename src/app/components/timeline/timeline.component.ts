@@ -56,7 +56,7 @@ export class TimelineComponent implements OnInit {
 
             $('html, body').animate(
               {
-                scrollTop: $('body').prop('scrollHeight'),
+                scrollTop: $('html').prop('scrollHeight'),
               },
               500
             );
@@ -81,11 +81,16 @@ export class TimelineComponent implements OnInit {
 
   public noMore = false;
   viewMore() {
-    if (this.publications.length == this.total) {
+    this.page += 1;
+
+    if (this.page == this.pages) {
       this.noMore = true;
-    } else {
-      this.page += 1;
     }
+
     this.getPublications(this.page, true);
+  }
+
+  refresh(event) {
+    this.getPublications(1);
   }
 }
