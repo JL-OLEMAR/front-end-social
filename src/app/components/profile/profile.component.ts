@@ -37,7 +37,6 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('componente perfil cargado');
     this.loadPage();
   }
 
@@ -53,7 +52,6 @@ export class ProfileComponent implements OnInit {
     this._userService.getUser(id).subscribe(
       (response) => {
         if (response.user) {
-          console.log(response);
           this.user = response.user;
 
           if (response.following && response.following._id) {

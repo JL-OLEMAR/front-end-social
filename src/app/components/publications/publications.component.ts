@@ -50,11 +50,6 @@ export class PublicationsComponent implements OnInit {
             this.pages = response.pages;
             this.itemsPerPage = response.items_per_pages;
 
-            console.log('publu-length: ' + response.publications.length);
-            console.log('total: ' + this.total);
-            console.log('pages: ' + this.pages);
-            console.log('pages: ' + this.itemsPerPage);
-
             if (!adding) {
               this.publications = response.publications;
             } else {
@@ -79,7 +74,6 @@ export class PublicationsComponent implements OnInit {
         },
         (error) => {
           var errorMessage = <any>error;
-          console.log(errorMessage);
           if (errorMessage != null) {
             this.status = 'error';
           }

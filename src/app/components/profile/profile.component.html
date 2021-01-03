@@ -23,7 +23,7 @@
 
       <div class="clearfix"></div>
 
-      <div class="follow pull-left">
+      <div class="follow pull-left" *ngIf="user._id != identity._id">
         <button
           class="btn btn-success"
           *ngIf="!following"
@@ -50,9 +50,9 @@
     <div class="stats pull-left" *ngIf="stats">
       <div class="following-data">
         <a href="#">
-          <span class="label-stats"> Siguiendo </span>
+          <span class="label-stats"> Publicaciones </span>
           <span class="number-stats">
-            {{ stats.following }}
+            {{ stats.publications }}
           </span>
         </a>
       </div>
@@ -65,12 +65,11 @@
           </span>
         </a>
       </div>
-
       <div class="following-data">
         <a href="#">
-          <span class="label-stats"> Publicaciones </span>
+          <span class="label-stats"> Seguidos </span>
           <span class="number-stats">
-            {{ stats.publications }}
+            {{ stats.following }}
           </span>
         </a>
       </div>
