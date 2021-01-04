@@ -6,6 +6,9 @@ import { routing, appRoutingProviders } from './app.routing';
 import { MomentModule } from 'angular2-moment';
 import * as $ from 'jquery';
 
+// Module custom
+import { MessagesModule } from './messages/messages.module';
+
 // Cargar componentes
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -41,6 +44,7 @@ import { FollowedComponent } from './components/followed/followed.component';
     routing,
     HttpClientModule,
     MomentModule,
+    MessagesModule
   ],
   providers: [appRoutingProviders],
   bootstrap: [AppComponent],
